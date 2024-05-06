@@ -6,13 +6,12 @@ export default {
     },
 
     created() {
-        console.log("Obge", this.char);
+        // console.log("Obge", this.char);
     }
 }
 </script>
 
 <template>
-    <!-- <h2>{{ this.char.image }}</h2> -->
     <div class="">
         <img :src="this.char.image" class="card-img-top rounded-circle" alt="...">
         <div class="card-body">
