@@ -7,10 +7,10 @@ export default {
 </script>
 
 <template>
-    <div class="container-fluid mt-4">
+    <div class="container-fluid mt-4 tex-center">
         <div class="row">
             <div class="col"></div>
-            <div class="col">
+            <div class="col text-center">
                 <h1>Rick e Morty App</h1>
             </div>
             <div class="col"></div>

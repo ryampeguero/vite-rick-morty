@@ -13,7 +13,7 @@ export default {
 
 <template>
     <div class="">
-        <img :src="this.char.image" class="card-img-top rounded-circle" alt="...">
+        <img :src="this.char.image" class="card-img-top img-thumbnail rounded-circle" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ this.char.name }}</h5>
             <div class="card-text">{{ this.char.status }}</div>
