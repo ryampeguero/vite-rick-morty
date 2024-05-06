@@ -13,13 +13,17 @@ export default {
 
 <template>
     <!-- <h2>{{ this.char.image }}</h2> -->
-    <div class="card">
+    <div class="">
         <img :src="this.char.image" class="card-img-top rounded-circle" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ this.char.name }}</h5>
-            <span class="card-text">{{ this.char.name }}</span>
+            <div class="card-text">{{ this.char.status }}</div>
+            <div class="card-text">{{ this.char.species }}</div>
+            
         </div>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

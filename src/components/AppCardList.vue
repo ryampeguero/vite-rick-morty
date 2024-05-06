@@ -22,7 +22,7 @@ export default {
 <template>
     <div class="container justify-content-center align-items-center text-center">
         <div class="row">
-            <div v-for="char in charArray" class="col-3 border p-3">
+            <div v-for="char in charArray" class="col-3 p-3">
                 <CharacterCard :char="char"/>
             </div>
         </div>
