@@ -6,7 +6,7 @@ export default {
     },
 
     created() {
-        // console.log("Obge", this.char);
+        console.log("Obge", this.char);
     }
 }
 </script>

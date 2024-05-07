@@ -1,16 +1,15 @@
 <script>
 import CharacterCard from "./CharacterCard.vue";
+import {store} from "../store.js"
 export default {
     components: {
         CharacterCard,
     },
 
-    props: {
-        charArray: [],
-    },
-
     data(){
-        
+        return {
+            store,
+        }
     },
 
     created(){
@@ -22,7 +21,7 @@ export default {
 <template>
     <div class="container justify-content-center align-items-center text-center">
         <div class="row">
-            <div v-for="char in charArray" class="col-3 p-3">
+            <div v-for="char in store.cardContainer" class="col-3 p-3">
                 <CharacterCard :char="char"/>
             </div>
         </div>

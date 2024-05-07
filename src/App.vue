@@ -52,9 +52,9 @@ export default {
 
       console.log("ciao", paramsObj.status);
 
-      axios.get("https://rickandmortyapi.com/api/character", { params: paramsObj}).then((resp) => {
+      axios.get("https://rickandmortyapi.com/api/character", { params: paramsObj }).then((resp) => {
         console.log(resp.data.results);
-        this.charArray = resp.data.results;
+        store.cardContainer = resp.data.results;
         this.loadingBuffer();
       });
     }
@@ -68,7 +68,7 @@ export default {
 
   <AppStatus @filter="callApi" />
 
-  <AppCardList v-if="loadingBool" :charArray="charArray" />
+  <AppCardList v-if="loadingBool"/>
 
   <AppBuffer v-else />
 
