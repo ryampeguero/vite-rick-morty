@@ -19,6 +19,12 @@ export default {
                     <option v-for="option in status" :value="option">{{ option }}</option>
                 </select>
             </div>
+            <div class="col"></div>
+            <div class="col">
+                <div class="d-flex justify-content-end">
+                    <span>Mostra {{ store.cardContainer.length }} risultati</span>
+                </div>
+            </div>
         </div>
     </div>
 </template>
