@@ -1,12 +1,16 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
+import AppStatus from "./components/AppStatus.vue"
 import AppCardList from "./components/AppCardList.vue";
 import AppBuffer from "./components/AppBuffer.vue";
 import axios from "axios";
 
+import { store } from "./store.js";
+
 export default {
   components: {
     AppHeader,
+    AppStatus,
     AppCardList,
     AppBuffer
   },
@@ -15,27 +19,44 @@ export default {
     return {
       charArray: [],
       loadingBool: false,
+      store, //Global Var
     }
   },
 
   created() {
-    axios.get("https://rickandmortyapi.com/api/character", {
-      params: {},
-    }).then((resp) => {
-      // console.log(resp.data.results);
-      this.charArray = resp.data.results;
-      this.loadingBuffer();
-    });
+    this.callApi();
   },
 
   methods: {
-    loadingBuffer(){
+    loadingBuffer() {
       // setTimeout(() => {this.loadingBool = !this.loadingBool;
       // }, 1000); Questo era un test
-      
-      this.loadingBool = !this.loadingBool;
+
+      this.loadingBool = true;
 
       console.log("Bool:", this.loadingBool);
+    },
+
+    callApi() {
+      this.loadingBool = false;
+
+      const paramsObj = {
+        status: " ",
+      };
+
+      console.log("ciao", paramsObj.status);
+
+      if (store.selectedStatus !== "All") {
+        paramsObj.status = store.selectedStatus;
+      }
+
+      console.log("ciao", paramsObj.status);
+
+      axios.get("https://rickandmortyapi.com/api/character", { params: paramsObj}).then((resp) => {
+        console.log(resp.data.results);
+        this.charArray = resp.data.results;
+        this.loadingBuffer();
+      });
     }
   }
 }
@@ -45,9 +66,11 @@ export default {
 
   <AppHeader />
 
-  <AppCardList v-if="loadingBool" :charArray="charArray"/>
+  <AppStatus @filter="callApi" />
 
-  <AppBuffer v-else/>
+  <AppCardList v-if="loadingBool" :charArray="charArray" />
+
+  <AppBuffer v-else />
 
 </template>
 

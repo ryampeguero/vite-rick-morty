@@ -8,7 +8,7 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col"></div>
-            <div class="col">
+            <div class="col text-center">
                 <img src="../assets/img/loading-buffering.gif" alt="">
             </div>
             <div class="col"></div>
